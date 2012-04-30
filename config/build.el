@@ -44,14 +44,16 @@ AUTOLOAD-LIBNAME the name of the generated autoload file."
   (let ((autoload-buf (jde-make-autoloads dir autoload-libname)))
     (if (> (length elib-dir) 0)
 	(add-to-list 'load-path elib-dir t))
-    (when (and cedet-paths (> (length cedet-dir) 0))
-      (dolist (path cedet-paths)
-	(add-to-list 'load-path (expand-file-name path cedet-dir) t)))
+    (let ((cedet-load-file (concat cedet-dir "/cedet-devel-load.el")))
+      (if (file-exists-p cedet-load-file)
+          (load-file cedet-load-file)
+        (when (and cedet-paths (> (length cedet-dir) 0))
+          (dolist (path cedet-paths)
+            (add-to-list 'load-path (expand-file-name path cedet-dir) t)))))
     (add-to-list 'load-path lisp-src-dir t)
     (eval-buffer autoload-buf)
     (message "load path: %s" (mapconcat #'identity load-path ":"))
     (byte-recompile-directory dir 0)))
-
 
 
 (require 'autoload)
