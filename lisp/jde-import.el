@@ -41,6 +41,7 @@
 (jde-semantic-require 'semantic-fw)
 (jde-semantic-require 'semantic-find)
 (jde-semantic-require 'semantic-util)
+(jde-semantic-require 'semantic-edit)
 (jde-require 'sregex)
 
 ;;;;

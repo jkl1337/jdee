@@ -75,9 +75,7 @@ Should be run when Semantic is ready to parse, that is, via
   (when jde-enable-senator
     ;; Enable `senator-minor-mode' in this buffer, unless it is
     ;; already enabled globally (since Semantic 1.4beta12).
-    (or (and (boundp 'global-senator-minor-mode)
-	     global-senator-minor-mode)
-	(senator-minor-mode 1)))
+    (setq senator-minor-mode t))
 
   ;; imenu & speedbar setup
   (jde-imenu-setup)

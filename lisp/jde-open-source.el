@@ -114,7 +114,6 @@ checks if it is a member of the base class(\"super\")."
     (when (and (fboundp 'senator-search-forward) (not (string= parsed-symbol "")))
       (goto-char (point-min))
       (semantic-fetch-tags)
-      (senator-parse)
       (setq parsed-symbol (concat "\\b" parsed-symbol "\\b"))
       (while (not (senator-re-search-forward parsed-symbol nil t))
 	(message "Could not find %s in %s" parsed-symbol (buffer-name))

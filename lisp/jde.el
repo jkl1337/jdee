@@ -61,7 +61,7 @@
    (defalias 'custom-set-default 'set-default))
 
 ;; Use the full Java 1.5 grammar to parse Java files
-(autoload 'wisent-java-default-setup "wisent-java" "Hook run to setup Semantic in `java-mode'." nil nil)
+(autoload 'wisent-java-default-setup "semantic/wisent/java" "Hook run to setup Semantic in `java-mode'." nil nil)
 
 (defun jde-semantic-require (sym)
   (cond ((string= sym 'senator)
