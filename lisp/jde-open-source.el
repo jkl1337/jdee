@@ -125,7 +125,6 @@ checks if it is a member of the base class(\"super\")."
           (let ((jde-open-cap-ff-function-temp-override 'find-file))
             (jde-show-superclass-source-2 tags))
           (goto-char (point-min))
-          (senator-parse)
           (search-forward-regexp "^[^\\*]*?{" nil t)
           (setq tags (jde-get-parents))
           ;;if it is the first time try in the class definition
@@ -504,7 +503,6 @@ If it finds the source file, it opens the file in a buffer."
 		    (let ((inner-class (substring class (+ 1 inner-class-pos))))
 		      (when inner-class
 			(goto-char (point-min))
-			(senator-parse)
 			(senator-re-search-forward
 			 (concat "\\b" inner-class "\\b") nil t)))))))
       (message "JDE error: Could not find source for \"%s\" in this
